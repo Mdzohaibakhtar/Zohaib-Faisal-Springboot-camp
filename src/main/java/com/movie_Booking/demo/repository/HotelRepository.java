@@ -78,4 +78,23 @@ public interface HotelRepository extends JpaRepository<Hotel, Long> {
     List<Hotel> findHotelsWithinRange(@Param("yourLatitude") Double yourLatitude,
                                       @Param("yourLongitude") Double yourLongitude,
                                       @Param("yourRangeInKm") Double yourRangeInKm);
+
+    /*
+    To retrieve a hotel within a 10.0 km range of the latitude 21.21544959 and longitude 81.3408107,
+    you would need to have a hotel in your database with latitude and longitude values that fall
+    within that range.
+
+    Suppose you have a hotel in your database with the following latitude and longitude values:
+
+    Latitude: 18.9217
+    Longitude: 72.8332
+    If the latitude and longitude of this hotel fall within a 10.0 km range of the latitude 21.21544959 and longitude 81.3408107, the hotel will be included in the result when executing the query.
+
+    Please note that the actual latitude and longitude values in your database will depend on the specific hotels you have stored and their corresponding locations.
+
+
+
+
+
+     */
 }
