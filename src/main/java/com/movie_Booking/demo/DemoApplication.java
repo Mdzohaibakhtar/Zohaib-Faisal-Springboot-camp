@@ -12,4 +12,8 @@ public class DemoApplication {
 		System.out.println(S);
 	}
 
+	public void testing(){
+		System.out.println("I am just for testing");
+	}
+
 }
