@@ -66,4 +66,8 @@ public class HotelServiceImpl implements HotelService  {
     }
 
 
+    @override
+    public List<Hotel> getHotelsWithinRange(double latitude, double longitude, double rangeInKm) {
+        return hotelRepository.findHotelsWithinRange(latitude, longitude, rangeInKm);
+    }
 }

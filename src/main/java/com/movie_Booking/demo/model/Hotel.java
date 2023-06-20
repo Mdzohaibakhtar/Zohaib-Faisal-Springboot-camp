@@ -23,5 +23,8 @@ public class Hotel {
     private int starRating;
     private int availableRooms;
     private String amenities;
+    private double latitude;
+    private double longitude;
+
 
 }
