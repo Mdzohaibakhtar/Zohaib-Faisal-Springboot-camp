@@ -9,8 +9,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class HotelServiceImpl implements HotelService  {
+public class HotelServiceImpl implements HotelService {
     private HotelRepository repository;
+
     public HotelServiceImpl(HotelRepository repository) {
         this.repository = repository;
     }
@@ -40,7 +41,7 @@ public class HotelServiceImpl implements HotelService  {
 
     @Override
     public void deleteHotelById(Long id) {
-         repository.deleteById(id);
+        repository.deleteById(id);
 
 
     }
@@ -57,12 +58,27 @@ public class HotelServiceImpl implements HotelService  {
 
     @Override
     public List<Hotel> findByPricePerNight(double minPrice, double maxPrice) {
-        return repository.findByPricePerNightBetween(minPrice,maxPrice);
+        return repository.findByPricePerNightBetween(minPrice, maxPrice);
     }
 
     @Override
     public List<Hotel> findByAddress(String hoteladdress) {
         return repository.findByHotelAddress(hoteladdress);
+    }
+
+    @Override
+    public List<Hotel> findByRooms() {
+        return repository.findByAvailableRooms();
+    }
+
+    @Override
+    public List<Hotel> findByHotelAmenities(String amenities) {
+        return repository.findByAmenitiesContains(amenities);
+    }
+
+    @Override
+    public List<Hotel> findByMinStarMaxPrice(int starRating, double maxPrice) {
+        return repository.findByStarRatingGreaterThanEqualAndPricePerNightLessThanEqual(starRating,maxPrice);
     }
 
 
@@ -71,5 +87,7 @@ public class HotelServiceImpl implements HotelService  {
         return repository.findHotelsWithinRange(latitude, longitude, rangeInKm);
     }
 
-
 }
+
+
+

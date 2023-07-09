@@ -15,6 +15,9 @@ public interface HotelService {
     public List<Hotel> finByStarRating(int starRating);
     public List<Hotel> findByPricePerNight(double minPrice, double maxPrice);
     public List<Hotel> findByAddress(String hoteladdress);
+    public List<Hotel> findByRooms();
+    public List<Hotel> findByHotelAmenities(String amenities);
+    public List<Hotel> findByMinStarMaxPrice(int starRating,double maxPrice);
 
     public List<Hotel> getHotelsWithinRange(double latitude, double longitude, double rangeInKm) ;
 }

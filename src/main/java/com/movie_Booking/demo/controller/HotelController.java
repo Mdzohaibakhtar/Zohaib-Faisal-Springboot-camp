@@ -104,4 +104,51 @@ public class HotelController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("Data not found in Hotel DB"));
         }
     }
+    @GetMapping("/availablerooms")
+    public ResponseEntity<?>getHotelByAvailableRooms(){
+        List<Hotel> hotels = hotelService.findByRooms();
+
+        if(!hotels.isEmpty()){
+            return new ResponseEntity<>(hotels, HttpStatus.OK);
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("Data not found in Hotel DB"));
+        }
+    }
+    @GetMapping("/amenities/{hotelamenities}")
+    public ResponseEntity<?>getHotelAmenities(@PathVariable String hotelamenities){
+        List<Hotel> hotels = hotelService.findByHotelAmenities(hotelamenities);
+
+        if(!hotels.isEmpty()){
+            return new ResponseEntity<>(hotels, HttpStatus.OK);
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("Data not found in Hotel DB"));
+        }
+    }
+
+    @GetMapping("/pl")
+    public ResponseEntity<?>getHotelWithinRange(@RequestParam double latitude,@RequestParam double longitude,@RequestParam double kms){
+        List<Hotel> hotels = hotelService.getHotelsWithinRange(latitude,longitude,kms);
+
+        if(!hotels.isEmpty()){
+            return new ResponseEntity<>(hotels, HttpStatus.OK);
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("Data not found in Hotel DB"));
+        }
+
+    }
+    @GetMapping("/hotelstarprice")
+    public ResponseEntity<?>getHotelMinStarMaxPrice(@RequestParam int minstar, @RequestParam double maxprice){
+        List<Hotel> hotels = hotelService.findByMinStarMaxPrice(minstar,maxprice);
+
+        if(!hotels.isEmpty()){
+            return new ResponseEntity<>(hotels,HttpStatus.OK);
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Data not found in Hotel DB");
+        }
+    }
+
 }
