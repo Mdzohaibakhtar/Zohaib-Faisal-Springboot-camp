@@ -21,7 +21,7 @@ public class PostController {
         return new ResponseEntity<>( /*Put variable here....*/, HttpStatus.OK) ;
     }
 
-    @GetMapping
+    @GetMapping("/getPosts")
     public ResponseEntity<Post> getPost(){
         // create variable and use service method
         return new ResponseEntity<>(/*Put variable here....*/, HttpStatus.OK);
