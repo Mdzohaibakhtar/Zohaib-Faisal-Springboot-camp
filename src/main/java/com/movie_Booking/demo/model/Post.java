@@ -22,6 +22,4 @@ public class Post {
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Comment> commentList = new HashSet<>();
 
-
-
 }
